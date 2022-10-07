@@ -9,6 +9,7 @@ const RootLayout = () => {
   return (
     <Container>
       <Header />
+      <div className="mb-2"></div>
       <Row>
         <Col>{<Outlet />}</Col>
       </Row>
