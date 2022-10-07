@@ -20,4 +20,5 @@
 .header ul li a {
   color: white;
   font-size: 19px;
+  text-decoration: none;
 }
