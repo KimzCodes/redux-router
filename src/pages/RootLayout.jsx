@@ -1,8 +1,6 @@
 import { Outlet } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 import Header from "../components/Header";
 const RootLayout = () => {
@@ -10,9 +8,7 @@ const RootLayout = () => {
     <Container>
       <Header />
       <div className="mb-2"></div>
-      <Row>
-        <Col>{<Outlet />}</Col>
-      </Row>
+      <div>{<Outlet />}</div>
     </Container>
   );
 };

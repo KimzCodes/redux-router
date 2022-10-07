@@ -7,16 +7,19 @@ const initialState = {
 };
 
 // read
-const fetchPosts = createAsyncThunk("post/fetchPosts", async (_, thunkAPI) => {
-  const { rejectWithValue } = thunkAPI;
-  try {
-    const res = await fetch("http://localhost:5000/posts");
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const fetchPosts = createAsyncThunk(
+  "post/fetchPosts",
+  async (_, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+      const res = await fetch("http://localhost:5000/posts");
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
 const postSlice = createSlice({
   name: "post",
@@ -30,7 +33,7 @@ const postSlice = createSlice({
     },
     [fetchPosts.fulfilled]: (state, action) => {
       state.loading = false;
-      state.books = action.payload;
+      state.posts = action.payload;
     },
     [fetchPosts.rejected]: (state, action) => {
       state.loading = false;
